@@ -1,0 +1,35 @@
+# Byte-compiled files
+*.pyc
+__pycache__/
+
+# Environment variables
+.env
+
+# Django migrations
+*/migrations/
+
+# Database
+db.sqlite3
+
+# Static files
+staticfiles/
+static/
+
+# Media files
+media/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Node modules (if you have a frontend in the same repo)
+node_modules/
+
+# Git files
+.git/

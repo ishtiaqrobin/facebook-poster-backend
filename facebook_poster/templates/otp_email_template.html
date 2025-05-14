@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Your E-Mail Address</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 600px;
+            padding: 30px;
+            margin: 32px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .header p {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .content {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .content p {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .otp {
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: left;
+        }
+
+        .verify-button {
+            display: inline-block;
+            border: 1px solid #007bff;
+            /* background-color: #007bff; */
+            color: white;
+            padding: 10px 36px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: normal;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .header p {
+                font-size: 14px;
+            }
+
+            .content {
+                font-size: 14px;
+            }
+
+            .otp {
+                font-size: 20px;
+                padding: 8px;
+            }
+
+            .verify-button {
+                padding: 8px 24px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .header p {
+                font-size: 12px;
+            }
+
+            .content {
+                font-size: 12px;
+            }
+
+            .otp {
+                font-size: 18px;
+                padding: 6px;
+            }
+
+            .verify-button {
+                padding: 6px 18px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>EzBitly AI</h1>
+            <p>Thanks for signing up!</p>
+        </div>
+
+        <div class="content">
+            <p>Hello {{ username }},</p>
+            <p>Please use the following One Time Password (OTP) to verify your email address:</p>
+            <p class="otp">{{ otp }}</p>
+            <p>
+                This passcode will only be valid for the next <span style="font-weight: bold;">5 minutes</span>.
+                <!-- If the
+                passcode does not work, you can use this login verification link: -->
+            </p>
+            <!-- <a href="{{ verification_link }}" class="verify-button">Verify Email</a> -->
+        </div>
+
+        <div class="footer">
+            <p>Thank you for joining us!</p>
+        </div>
+    </div>
+</body>
+
+</html>
