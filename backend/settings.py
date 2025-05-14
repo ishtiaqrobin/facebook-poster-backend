@@ -17,7 +17,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECRET KEY & DEBUG MODE
 SECRET_KEY = config('DJANGO_SECRET_KEY')
-DEBUG = config("DJANGO_DEBUG", default=(DJANGO_ENV == "development"), cast=bool)
+# DEBUG = config("DJANGO_DEBUG", default=(DJANGO_ENV == "development"), cast=bool)
+DEBUG = True
 
 # ALLOWED HOSTS
 ALLOWED_HOSTS = [

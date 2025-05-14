@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from .models import FacebookToken, FacebookPage
 from .serializers import FacebookPageSerializer, FacebookPostSerializer
+from django.http import HttpResponse
 
 logger = logging.getLogger(__name__)
 
@@ -112,4 +113,4 @@ class FacebookViewSet(viewsets.ViewSet):
             )
 
 def home(request):
-    return render(request, 'design/home.html')
+    return HttpResponse("Server is running!")
