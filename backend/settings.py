@@ -87,8 +87,6 @@ DATABASES = {
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'facebook_poster/static')]
-
 # Media is common for both
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -164,7 +162,7 @@ SIMPLE_JWT = {
 
 # todo: Set PayPal environment mode
 if DJANGO_ENV == "development":
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'facebook_poster/static')]
+    # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'facebook_poster/static')]
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_dev')  # Added for development
 
     FRONTEND_URL = "http://localhost:3000"
