@@ -35,7 +35,7 @@ def facebook_callback(request):
             data={
                 "client_id": FACEBOOK_CLIENT_ID,
                 "client_secret": FACEBOOK_CLIENT_SECRET,
-                "redirect_uri": "https://facebook-poster-backend.onrender.com/facebook/callback/",
+                "redirect_uri": "https://facebook-poster-backend.onrender.com/api/facebook/callback/",
                 "code": code,
             }
         )

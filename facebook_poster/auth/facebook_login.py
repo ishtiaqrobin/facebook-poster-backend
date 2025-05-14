@@ -15,7 +15,7 @@ def facebook_login(request):
         facebook_auth_url = (
             f"https://www.facebook.com/v18.0/dialog/oauth?"
             f"client_id={FACEBOOK_CLIENT_ID}&"
-            f"redirect_uri=https://facebook-poster-backend.onrender.com/facebook/callback/&"
+            f"redirect_uri=https://facebook-poster-backend.onrender.com/api/facebook/callback/&"
             f"state={next_url}&"
             f"scope=email,public_profile,pages_show_list,pages_manage_posts,pages_read_engagement"
         )
