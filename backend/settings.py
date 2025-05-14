@@ -23,7 +23,9 @@ DEBUG = config("DJANGO_DEBUG", default=(DJANGO_ENV == "development"), cast=bool)
 ALLOWED_HOSTS = [
     'facebook-poster-backend.ezbitly.com',
     'www.facebook-poster-backend.ezbitly.com',
-    '127.0.0.1'
+    '127.0.0.1',
+    'localhost',
+    'facebook-poster-backend.onrender.com',
 ]
 
 # INSTALLED APPS
