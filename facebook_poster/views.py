@@ -112,4 +112,4 @@ class FacebookViewSet(viewsets.ViewSet):
             )
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'design/home.html')
