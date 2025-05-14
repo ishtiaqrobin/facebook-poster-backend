@@ -175,7 +175,7 @@ else:
 
     FRONTEND_URL = "https://facebook-poster.ezbitly.com"   
 
-    FACEBOOK_REDIRECT_URI = "https://facebook-poster-backend.ezbitly.com/api/facebook/callback/" 
+    FACEBOOK_REDIRECT_URI = "https://facebook-poster-backend.onrender.com/api/facebook/callback/" 
 
 # SOCIAL AUTHENTICATION
 AUTHENTICATION_BACKENDS = (
