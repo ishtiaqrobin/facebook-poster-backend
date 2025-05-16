@@ -18,14 +18,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET KEY & DEBUG MODE
 SECRET_KEY = config('DJANGO_SECRET_KEY')
 # DEBUG = config("DJANGO_DEBUG", default=(DJANGO_ENV == "development"), cast=bool)
-DEBUG = True
+DEBUG = False
 
 # ALLOWED HOSTS
 ALLOWED_HOSTS = [
-    'facebook-poster-backend.ezbitly.com',
-    'www.facebook-poster-backend.ezbitly.com',
     '127.0.0.1',
     'localhost',
+    'www.facebook-poster-backend.ezbitly.com',
+    'facebook-poster-backend.ezbitly.com',
+    'www.facebook-poster-backend.onrender.com',
     'facebook-poster-backend.onrender.com',
 ]
 
@@ -58,11 +59,12 @@ MIDDLEWARE = [
 ]
 
 # CORS SETTINGS
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = False
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "https://facebook-poster.ezbitly.com"
+    "https://facebook-poster.ezbitly.com",
+    "https://facebook-client-eight.vercel.app"
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -172,9 +174,10 @@ if DJANGO_ENV == "development":
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-    FRONTEND_URL = "https://facebook-poster.ezbitly.com"   
+    # FRONTEND_URL = "https://facebook-poster.ezbitly.com"   
+    FRONTEND_URL = "https://facebook-client-eight.vercel.app"   
 
-    FACEBOOK_REDIRECT_URI = "https://facebook-poster-backend.onrender.com/api/facebook/callback/" 
+    FACEBOOK_REDIRECT_URI = "https://facebook-poster-backend.ezbitly.com/api/facebook/callback/" 
 
 # SOCIAL AUTHENTICATION
 AUTHENTICATION_BACKENDS = (

@@ -24,7 +24,8 @@ def facebook_callback(request):
     try:
         csrf_token = get_token(request)
         code = request.GET.get("code")
-        next_url = request.GET.get("state", "https://facebook-poster.ezbitly.com")
+        # next_url = request.GET.get("state", "https://facebook-poster.ezbitly.com")
+        next_url = request.GET.get("state", "https://facebook-client-eight.vercel.app")
         
         if not code:
             return JsonResponse({"error": "Authorization code not provided"}, status=400)
@@ -35,7 +36,7 @@ def facebook_callback(request):
             data={
                 "client_id": FACEBOOK_CLIENT_ID,
                 "client_secret": FACEBOOK_CLIENT_SECRET,
-                "redirect_uri": "https://facebook-poster-backend.onrender.com/api/facebook/callback/",
+                "redirect_uri": "https://facebook-poster-backend.ezbitly.com/api/facebook/callback/",
                 "code": code,
             }
         )
@@ -113,7 +114,7 @@ def facebook_callback(request):
             secure=True,
             samesite="Strict",
             path="/",
-            expires=datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(minutes=15)
+            expires=datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(minutes=45)
         )
 
         response.set_cookie(

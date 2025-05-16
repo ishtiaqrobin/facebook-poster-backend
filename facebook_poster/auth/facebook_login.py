@@ -11,11 +11,12 @@ FACEBOOK_CLIENT_ID = os.getenv("SOCIAL_AUTH_FACEBOOK_KEY")
 @csrf_exempt
 def facebook_login(request):
     if request.method == "POST":
-        next_url = request.POST.get("next", "https://facebook-poster.ezbitly.com")
+        # next_url = request.POST.get("next", "https://facebook-poster.ezbitly.com")
+        next_url = request.POST.get("next", "https://facebook-client-eight.vercel.app")
         facebook_auth_url = (
             f"https://www.facebook.com/v18.0/dialog/oauth?"
             f"client_id={FACEBOOK_CLIENT_ID}&"
-            f"redirect_uri=https://facebook-poster-backend.onrender.com/api/facebook/callback/&"
+            f"redirect_uri=https://facebook-poster-backend.ezbitly.com/api/facebook/callback/&"
             f"state={next_url}&"
             f"scope=email,public_profile,pages_show_list,pages_manage_posts,pages_read_engagement"
         )

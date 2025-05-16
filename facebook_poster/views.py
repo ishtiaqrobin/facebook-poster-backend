@@ -2,7 +2,7 @@ from django.shortcuts import render
 import requests
 import logging
 from rest_framework import viewsets, status
-from rest_framework.decorators import action
+from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from .models import FacebookToken, FacebookPage
@@ -113,4 +113,33 @@ class FacebookViewSet(viewsets.ViewSet):
             )
 
 def home(request):
-    return HttpResponse("Server is running!")
+    return HttpResponse("Server is running on Cpanel!")
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def facebook_profile(request):
+    try:
+        fb_token = FacebookToken.objects.get(user=request.user)
+    except FacebookToken.DoesNotExist:
+        return Response({'error': 'No Facebook token found'}, status=400)
+    url = 'https://graph.facebook.com/v18.0/me'
+    params = {
+        'fields': 'id,name,email,picture',
+        'access_token': fb_token.access_token
+    }
+    r = requests.get(url, params=params)
+    return Response(r.json())
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def facebook_pages(request):
+    try:
+        fb_token = FacebookToken.objects.get(user=request.user)
+    except FacebookToken.DoesNotExist:
+        return Response({'error': 'No Facebook token found'}, status=400)
+    url = 'https://graph.facebook.com/v18.0/me/accounts'
+    params = {
+        'access_token': fb_token.access_token
+    }
+    r = requests.get(url, params=params)
+    return Response(r.json())

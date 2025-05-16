@@ -1,4 +1,4 @@
-PassengerEnabled on
-PassengerAppEnv production
-PassengerPython /home/ezbitlyc/virtualenv/facebook-poster-backend.ezbitly.com/3.11/bin/python
-WSGIScriptAlias / /home/ezbitlyc/facebook-poster-backend.ezbitly.com/passenger_wsgi.py
+   PassengerEnabled on
+   PassengerAppEnv production
+   PassengerPython /home/ezbitlyc/virtualenv/facebook-poster-backend.ezbitly.com/3.11/bin/python
+   WSGIScriptAlias / /home/ezbitlyc/facebook-poster-backend.ezbitly.com/passenger_wsgi.py
