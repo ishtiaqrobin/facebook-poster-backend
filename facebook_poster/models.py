@@ -17,6 +17,9 @@ class FacebookPage(models.Model):
     page_id = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     access_token = models.TextField()
+    category = models.CharField(max_length=255, null=True, blank=True)
+    category_id = models.CharField(max_length=255, null=True, blank=True)
+    tasks = models.TextField(null=True, blank=True)  # Comma separated or JSON string
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -25,3 +28,9 @@ class FacebookPage(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.page_id})"
+
+class MediaFile(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    page = models.ForeignKey(FacebookPage, on_delete=models.CASCADE)
+    file = models.FileField(upload_to='uploads/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)

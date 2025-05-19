@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET KEY & DEBUG MODE
 SECRET_KEY = config('DJANGO_SECRET_KEY')
 # DEBUG = config("DJANGO_DEBUG", default=(DJANGO_ENV == "development"), cast=bool)
-DEBUG = False
+DEBUG = True
 
 # ALLOWED HOSTS
 ALLOWED_HOSTS = [
@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'social_django', 
     # 'django_celery_beat',
+    'whitenoise.runserver_nostatic',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 # MIDDLEWARE
@@ -56,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 # CORS SETTINGS
@@ -132,7 +135,7 @@ CACHES = {
     }
 }
 
-# hack: Celery configuration for deleting file (No use)
+# hack: Celery configuration for deleting file (No use but not remove)
 # # CELERY CONFIGURATION
 # CELERY_BROKER_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
 # CELERY_RESULT_BACKEND = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
@@ -200,5 +203,8 @@ CACHE_TIMEOUT = 45 * 60  # 45 minutes for cache time out
 # hack: Automatic file delete timer (No use)
 # DELETE_GENERATED_AUDIO_DELAY_SECONDS = 10 * 60 # 10 minutes for production
 # DELETE_CONVERTED_AUDIO_DELAY_SECONDS = 10 * 60 # 10 minutes for production
+
+# Static files
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
